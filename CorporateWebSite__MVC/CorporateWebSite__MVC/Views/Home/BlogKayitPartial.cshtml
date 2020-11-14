@@ -1,0 +1,17 @@
+﻿@using CorporateWebSite__MVC.Helper;
+
+@model IEnumerable<CorporateWebSite__MVC.Models.Model.Blog>
+
+@foreach (var item in Model.Take(2))
+{
+    <li>
+        <a href="/BlogPost/@SeoHelper.ToSeoUrl(item.blogBaslik).ToLower()-@item.blogId"><img src="@item.blogResimURL" class="pull-left" alt="@item.blogBaslik" /></a>
+        <h6><a href="/BlogPost/@SeoHelper.ToSeoUrl(item.blogBaslik).ToLower()-@item.blogId">@item.blogBaslik</a></h6>
+        <a href="/BlogPost/@SeoHelper.ToSeoUrl(item.blogBaslik).ToLower()-@item.blogId" style="color:black">
+          <p>  @Html.Raw(item.blogIcerik.Substring(0, 150))...
+            </p></a>
+    </li>
+
+}
+
+

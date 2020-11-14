@@ -1,0 +1,23 @@
+﻿@model IEnumerable<CorporateWebSite__MVC.Models.Model.Slider>
+@{
+    Layout = null;
+}
+<div id="main-slider" class="flexslider">
+    <ul class="slides">
+        @foreach (var item in Model)
+        {
+
+
+            <li>
+                <img src="@item.logoURL" alt="@item.sliderBaslik" />
+
+                <div class="flex-caption">
+                    <h3>@item.sliderBaslik</h3>
+                    <p>@Html.Raw(item.sliderGozAciklama)</p>
+                    <a href="#" class="btn btn-theme">Devamını oku</a>
+                </div>
+            </li>
+
+        }
+    </ul>
+    </div>

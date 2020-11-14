@@ -1,0 +1,57 @@
+﻿@model CorporateWebSite__MVC.Models.Model.Slider
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Slider Sil</h2>
+
+<h3>Bu sliderı silmek istediğinize emin misiniz?</h3>
+<div>
+    <h4>Slider</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.sliderBaslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sliderBaslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sliderGozAciklama)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.sliderGozAciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sliderBAciklama)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.sliderBAciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.logoURL)
+        </dt>
+
+        <dd>
+            <img class="img-responsive" src="@Model.logoURL" width="150" height="50" />
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            @Html.ActionLink("Geri Dön", "Index")
+        </div>
+    }
+</div>

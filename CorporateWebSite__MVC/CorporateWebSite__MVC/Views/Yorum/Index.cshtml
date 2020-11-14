@@ -1,0 +1,77 @@
+﻿@model IEnumerable<CorporateWebSite__MVC.Models.Model.Yorum>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yorumlar</h2>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#myTable').DataTable(
+            {
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+                }
+
+            }
+
+        );
+    });
+</script>
+
+<table class="table" id="myTable">
+
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.blog.blogBaslik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.yorumAdSoyad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.yorumEposta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.yorumIcerik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.yorumOnay)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.blog.blogBaslik)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.yorumAdSoyad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.yorumEposta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.yorumIcerik)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.yorumOnay)
+                </td>
+                <td>
+                    @Html.ActionLink("Güncelle", "Edit", new { id = item.yorumId }) |
+                    @Html.ActionLink("Detay", "Details", new { id = item.yorumId }) |
+                    @Html.ActionLink("Sil", "Delete", new { id = item.yorumId })
+                </td>
+            </tr>
+            }
+        </tbody>
+    
+
+
+</table>

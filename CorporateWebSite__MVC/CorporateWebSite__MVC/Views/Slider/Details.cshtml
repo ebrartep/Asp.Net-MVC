@@ -1,0 +1,52 @@
+﻿@model CorporateWebSite__MVC.Models.Model.Slider
+
+@{
+    ViewBag.Title = "Slider Detay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Slider</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.sliderBaslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sliderBaslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sliderGozAciklama)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.sliderGozAciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sliderBAciklama)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.sliderBAciklama)
+
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.logoURL)
+        </dt>
+
+        <dd>
+            <img  class="img-responsive"  src="@Model.logoURL"  width="150" height="50"/>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Güncelle", "Edit", new { id = Model.sliderId }) |
+    @Html.ActionLink("Geri Dön", "Index")
+</p>

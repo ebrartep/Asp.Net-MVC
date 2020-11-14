@@ -1,0 +1,41 @@
+﻿@model IEnumerable<CorporateWebSite__MVC.Models.Model.Hizmet>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<header class="panel-heading">
+    <h2>Hizmetler</h2>
+    <a class="btn btn-default" href="/Hizmet/Create/">Yeni Ekle</a>
+</header>
+<table class="table table-striped ">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Başlık</th>
+            <th>Açıklama</th>
+            <th>Resim</th>
+            <th>İşlemler</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="success">
+                <td>@item.hizmetId </td>
+                <td>@item.hizmetBaslik</td>
+                <td>@Html.Raw(item.hizmetAciklama)</td>
+                <td><img width="50" height="50"  src="@item.hizmetResimURL" /></td>
+                <td>
+                    <div class="btn-group">
+                        <a class="btn btn-success" href="/Hizmet/Edit/@item.hizmetId/"><i class="icon_check_alt2"></i> Düzenle</a>
+                        <a class="btn btn-danger" href="/Hizmet/Delete/@item.hizmetId/"><i class="icon_close_alt2"></i> Sil</a>
+                    </div>
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<CorporateWebSite__MVC.Models.Model.Blog>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#myTable').DataTable(
+            {
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+                }
+
+            }
+
+        );
+    });
+</script>
+
+
+<header class="panel-heading">
+    <h2>Blog Kayıtları</h2>
+    <a class="btn btn-default" href="/Blog/Create/">Yeni Ekle</a>
+</header>
+<table class="table table-striped" id="myTable">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Başlık</th>
+            <th>Kategori</th>
+            <th>Resim</th>
+            <th>İşlemler</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="warning">
+                <td>@item.blogId </td>
+                <td>@item.blogBaslik</td>
+                <td>@item.kategori.kategoriAd</td>
+
+                <td><img width="50" height="50" src="@item.blogResimURL" /></td>
+                <td>
+                    <div class="btn-group">
+                        <a class="btn btn-success" href="/Blog/Edit/@item.blogId/"><i class="icon_check_alt2"></i> Düzenle</a>
+                        <a class="btn btn-danger" href="/Blog/Delete/@item.blogId/"><i class="icon_close_alt2"></i> Sil</a>
+                    </div>
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+
+

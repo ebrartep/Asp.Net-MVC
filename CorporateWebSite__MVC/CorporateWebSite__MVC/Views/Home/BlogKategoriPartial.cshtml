@@ -1,0 +1,12 @@
+﻿@using CorporateWebSite__MVC.Helper;
+@model IEnumerable<CorporateWebSite__MVC.Models.Model.Kategori>
+
+
+    <ul class="cat">
+
+        @foreach (var item in Model)
+        {
+            <li><i class="icon-angle-right"></i><a href="/BlogKategori/@SeoHelper.ToSeoUrl(item.kategoriAd).ToLower()-@item.kategoriId">@item.kategoriAd</a><span>(@item.Blogs.Count())</span></li>
+        }
+
+    </ul>

@@ -1,0 +1,59 @@
+﻿@model CorporateWebSite__MVC.Models.Model.Yorum
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yorum Detay</h2>
+
+<div>
+    <h4>Yorum</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.blog.blogBaslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.blog.blogBaslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.yorumAdSoyad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.yorumAdSoyad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.yorumEposta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.yorumEposta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.yorumIcerik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.yorumIcerik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.yorumOnay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.yorumOnay)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Güncelle", "Edit", new { id = Model.yorumId }) |
+    @Html.ActionLink("Geri Dön", "Index")
+</p>

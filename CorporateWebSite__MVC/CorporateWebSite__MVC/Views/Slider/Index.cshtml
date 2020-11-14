@@ -1,0 +1,53 @@
+﻿@model IEnumerable<CorporateWebSite__MVC.Models.Model.Slider>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Slider</h2>
+
+<p>
+
+    <a class="btn btn-default" href="/Slider/Create/">Yeni Slider Ekle</a>
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.sliderBaslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sliderGozAciklama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sliderBAciklama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.logoURL)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.sliderBaslik)
+        </td>
+        <td>
+            @Html.Raw(item.sliderGozAciklama)
+        </td>
+        <td>
+            @Html.Raw(item.sliderBAciklama)
+        </td>
+        <td>
+            <img class="img-responsive" src="@item.logoURL" width="150" height="50" />
+        </td>
+        <td>
+            @Html.ActionLink("Güncelle", "Edit", new { id=item.sliderId }) |
+            @Html.ActionLink("Detay", "Details", new { id=item.sliderId }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.sliderId })
+        </td>
+    </tr>
+}
+
+</table>

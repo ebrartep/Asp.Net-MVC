@@ -1,0 +1,65 @@
+﻿@model CorporateWebSite__MVC.Models.Model.Yorum
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yorum Sil</h2>
+
+<h3>Bu yorumu silmek istediğinize emin misiniz?</h3>
+<div>
+    <h4>Yorum</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.blog.blogBaslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.blog.blogBaslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.yorumAdSoyad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.yorumAdSoyad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.yorumEposta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.yorumEposta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.yorumIcerik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.yorumIcerik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.yorumOnay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.yorumOnay)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            @Html.ActionLink("Geri Dön", "Index")
+        </div>
+    }
+</div>
